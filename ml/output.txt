@@ -1,0 +1,75 @@
+
+===== distribution  shape=(63, 15)
+Source                          str
+Number of Samples             int64
+Percentage of Total Data        str
+Text Length Sum               int64
+Text Length Mean            float64
+Text Length Median          float64
+Text Length Std             float64
+Text Length Max               int64
+Text Length Min               int64
+Word Count Sum                int64
+Word Count Mean             float64
+Word Count Median           float64
+Word Count Std              float64
+Word Count Max                int64
+Word Count Min                int64
+dtype: object
+             Source  Number of Samples  ... Word Count Max  Word Count Min
+0             Human             347692  ...          71543              25
+1           GPT-3.5              52346  ...           3565              25
+2  Text-Davinci-003              22860  ...            822              25
+3  Text-Davinci-002              21436  ...            934              25
+4          OPT-1.3B              18467  ...            960              25
+
+[5 rows x 15 columns]
+
+===== prompts  shape=(9914, 2)
+Prompt ID    int64
+Prompt         str
+dtype: object
+   Prompt ID                                                                Prompt
+0          0                                                             Undefined
+1          1  Anything, be creative and make this about any random topic you want.
+2          2                                      Does the electoral college work?
+3          3                                                       Car-free cities
+4          4                                           Facial action coding system
+
+===== data.parquet
+Rows: 788922
+text: string
+source: string
+prompt_id: int64
+text_length: int64
+word_count: int64
+-- schema metadata --
+pandas: '{"index_columns": [{"kind": "range", "name": null, "start": 0, "' + 835
+
+First row:
+- text: 'Federal law supersedes state law, and cannabis, for medical or recreational use, is still prohibited by federal law. The reasons they give for keeping'
+- source: 'Bloom-7B'
+- prompt_id: '0'
+- text_length: '967'
+- word_count: '157'
+
+Value counts for 'source' (first 2000 rows):
+source
+Bloom-7B    2000
+Name: count, dtype: int64
+
+Value counts for 'prompt_id' (first 2000 rows):
+prompt_id
+0    2000
+Name: count, dtype: int64
+
+Word count stats for 'text':
+count    2000.000000
+mean      321.406000
+std       246.333994
+min        30.000000
+25%       137.000000
+50%       235.500000
+75%       421.000000
+max       960.000000
+Name: text, dtype: float64

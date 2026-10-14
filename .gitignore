@@ -1,0 +1,32 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+frontend/dist/
+
+# Data, database and uploads (never put these on GitHub)
+data/
+*.db
+*.sqlite3
+*.parquet
+*.csv
+
+# Secrets
+.env
+
+# Temporary helper scripts
+frontend/make_step*.cjs
+frontend/add_countries.cjs
+frontend/countries_part*.cjs
+frontend/fix_profile_password.cjs
+install_profile_backend.py
+ml/examples.txt
+ml/test_text.txt
+
+# Editors and system files
+.vscode/
+.idea/
+.DS_Store
