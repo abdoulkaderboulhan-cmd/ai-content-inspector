@@ -106,3 +106,6 @@ p { margin: 0 0 12px; }
 .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .spread { justify-content: space-between; }
 .text-box { white-space: pre-wrap; word-break: break-word; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px; max-height: 340px; overflow: auto; }
+
+.gh-link { display: inline-flex; align-items: center; gap: 6px; margin-left: 14px; color: var(--muted); text-decoration: none; font-weight: 600; }
+.gh-link:hover { color: #111; }
