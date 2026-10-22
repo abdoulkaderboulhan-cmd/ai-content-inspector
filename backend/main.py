@@ -328,3 +328,21 @@ def stats(user: User = Depends(get_current_user), db: Session = Depends(get_db))
 from backend.profile_extra import router as profile_router  # noqa: E402
 
 app.include_router(profile_router)
+
+
+# ---------- serve the built website (used when the app is online) ----------
+from fastapi.responses import FileResponse as SiteFileResponse  # noqa: E402
+from fastapi.staticfiles import StaticFiles  # noqa: E402
+
+SITE_DIR = Path(__file__).resolve().parent.parent / "frontend" / "dist"
+if SITE_DIR.is_dir():
+    app.mount("/assets", StaticFiles(directory=SITE_DIR / "assets"), name="site-assets")
+
+    @app.get("/{full_path:path}", include_in_schema=False)
+    def website(full_path: str):
+        if full_path.startswith("api/"):
+            raise HTTPException(404, "Not found")
+        candidate = SITE_DIR / full_path
+        if full_path and candidate.is_file():
+            return SiteFileResponse(candidate)
+        return SiteFileResponse(SITE_DIR / "index.html")

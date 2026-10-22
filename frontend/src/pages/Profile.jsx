@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { api } from "../api.js";
+import { api, BASE } from "../api.js";
 import { useAuth } from "../auth.jsx";
 import { formatDate } from "../format.js";
 import { COUNTRIES } from "../countries.js";
 
-const API = "http://127.0.0.1:8000";
+const API = BASE;
 
 function Msg({ msg }) {
   if (!msg) return null;
